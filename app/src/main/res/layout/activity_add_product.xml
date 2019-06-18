@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddProductActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingTop="20dp">
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txt_user_id_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible"
+                    android:gravity="center"
+                    android:background="@drawable/txt_back"
+                    android:hint="User id"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="10px"
+                    android:id="@+id/pro_name_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/product_name"
+                    android:imeActionId="6"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:background="@drawable/txt_back"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="10px"
+                    android:id="@+id/pro_desc_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="@string/product_description"
+                    android:imeActionId="6"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:maxLines="5"
+                    android:singleLine="true"
+                    android:background="@drawable/txt_back"
+                    android:gravity="center"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_add_product"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/add_product"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary"
+                android:textColor="#fff"
+                android:textAllCaps="false"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
