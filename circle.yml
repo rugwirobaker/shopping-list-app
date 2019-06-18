@@ -1,25 +1,23 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: mreichelt/android:28
-    working_directory: ~/shopping-list-app
-    steps:
-      - checkout
-      - run: mkdir artifacts
-      - run:
-          name: List what is currently installed
-          command: sdkmanager --list
-      - run:
-          name: Install dependencies
-          command: |
-                - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-28.0.0,android-28,extra-google-m2repository,extra-google-google_play_services,extra-android-support
-                - $ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
-      - run:
-          name: Run Android Connected Tests
-          command: |
-                - (./gradlew assemble):
-                    timeout: 360
-      - store_artifacts:
-          path: ~/home/ubuntu/shopping-list-app/app/build/outputs/apk/
-          destination: env
+general:
+    artifacts:
+        - /home/ubuntu/YourApplicationName/app/build/outputs/apk/
+
+machine:
+    java:
+        version: oraclejdk8
+    environment:
+        ANDROID_HOME: /usr/local/android-sdk-linux
+
+
+dependencies:
+    pre:
+        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-28
+        - echo y | android update sdk --no-ui --all --filter build-tools-28.0.0
+    cache_directories:
+        - /usr/local/android-sdk-linux/tools
+        - /usr/local/android-sdk-linux/build-tools/24.0.1
+
+test:
+    override:
+        - ./gradlew assemble
+        - cp -r app/build/outputs $CIRCLE_ARTIFACTS
