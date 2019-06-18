@@ -11,44 +11,15 @@ jobs:
           name: List what is currently installed
           command: sdkmanager --list
       - run:
-          name: Create AVD
+          name: Install dependencies
           command: |
-            echo "n" | avdmanager -v create avd -n shopping-list-app -k "system-images;android-28;google_apis;armeabi-v7a" -c 512M -g google_apis  -d "Nexus 7 2013"
-      - run:
-          name: Run Emulator
-          background: true
-          command: |
-            $ANDROID_SDK_ROOT/tools/emulator -no-window -noaudio -no-boot-anim -gpu swiftshader @shopping-list-app
-      - run:
-          name: Wait for Emulator
-          no_output_timeout: 15m
-          command: |
-            sleep 15
-            $ANDROID_SDK_ROOT/platform-tools/adb devices
-            sleep 10
-      - run:
-          name: Fetch logcat and props
-          background: true
-          command: |
-            $ANDROID_SDK_ROOT/platform-tools/adb logcat >> ./artifacts/logcat.txt
-            $ANDROID_SDK_ROOT/platform-tools/adb shell getprop >> ./artifacts/props.txt
+                - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-28.0.0,android-28,extra-google-m2repository,extra-google-google_play_services,extra-android-support
+                - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
       - run:
           name: Run Android Connected Tests
           command: |
-            export ADB_INSTALL_TIMEOUT=120
-            export ANDROID_HOME=$ANDROID_SDK_ROOT
-            # ./scripts/test.sh
-            ./gradlew assembleDebug
-            # Wait for emulator to fully boot
-            # TODO: Need to create a good check
-            sleep 60
-            # Is the emulator still running?
-            adb devices
-            # Check if package manager is running
-            adb shell pm list packages
-            # Install package
-            $ANDROID_SDK_ROOT/platform-tools/adb install /home/android/shopping-list-app/app/build/outputs/apk/app-debug.apk
-            ./gradlew connectedAndroidTest
+                - (./gradlew assemble):
+                    timeout: 360
       - store_artifacts:
-          path: ~/shopping-list-app/artifacts
+          path: ~/home/ubuntu/shopping-list-app/app/build/outputs/apk/
           destination: env
