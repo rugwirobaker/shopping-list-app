@@ -4,9 +4,6 @@ jobs:
     docker:
       - image: mreichelt/android:28
     working_directory: ~/shopping-list-app
-    environment:
-          JVM_OPTS: "-Xmx1024m -XX:+PrintFlagsFinal -XX:+PrintGCDetails"
-          _JAVA_OPTIONS: "-Xmx1024m"
     steps:
       - checkout
       - run: mkdir artifacts
