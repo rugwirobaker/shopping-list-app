@@ -13,12 +13,12 @@ jobs:
       - run:
           name: Create AVD
           command: |
-            echo "n" | avdmanager -v create avd -n androidlearn -k "system-images;android-28;google_apis;armeabi-v7a" -c 512M -g google_apis  -d "Nexus 7 2013"
+            echo "n" | avdmanager -v create avd -n shopping-list-app -k "system-images;android-28;google_apis;armeabi-v7a" -c 512M -g google_apis  -d "Nexus 7 2013"
       - run:
           name: Run Emulator
           background: true
           command: |
-            $ANDROID_SDK_ROOT/tools/emulator -no-window -noaudio -no-boot-anim -gpu swiftshader @androidlearn
+            $ANDROID_SDK_ROOT/tools/emulator -no-window -noaudio -no-boot-anim -gpu swiftshader @shopping-list-app
       - run:
           name: Wait for Emulator
           no_output_timeout: 15m
@@ -47,8 +47,8 @@ jobs:
             # Check if package manager is running
             adb shell pm list packages
             # Install package
-            $ANDROID_SDK_ROOT/platform-tools/adb install /home/android/androidlearn/app/build/outputs/apk/app-debug.apk
+            $ANDROID_SDK_ROOT/platform-tools/adb install /home/android/shopping-list-app/app/build/outputs/apk/app-debug.apk
             ./gradlew connectedAndroidTest
       - store_artifacts:
-          path: ~/androidlearn/artifacts
+          path: ~/shopping-list-app/artifacts
           destination: env
