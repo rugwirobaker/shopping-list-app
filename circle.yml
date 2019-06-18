@@ -13,8 +13,8 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-              - echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-28
-              - echo y | android update sdk --no-ui --all --filter build-tools-28.0.0
+              - echo "n" | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-28
+              - echo "n" | android update sdk --no-ui --all --filter build-tools-28.0.0
       - run:
           name: Run Android Connected Tests
           command: |
