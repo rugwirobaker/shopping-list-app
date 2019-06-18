@@ -4,11 +4,11 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/workspace
     docker:
-      - image: circleci/<language>:<version TAG>
+      - image: circleci/android:api-28
     steps:
       - checkout
-      - run: <command>
 general:
     artifacts:
         - /home/ubuntu/shopping-list-app/app/build/outputs/apk/
