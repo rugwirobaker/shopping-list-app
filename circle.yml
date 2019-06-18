@@ -1,7 +1,14 @@
 #
 # Build configuration for Circle CI
 #
-
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/<language>:<version TAG>
+    steps:
+      - checkout
+      - run: <command>
 general:
     artifacts:
         - /home/ubuntu/shopping-list-app/app/build/outputs/apk/
