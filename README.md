@@ -7,3 +7,10 @@ sample android application.
 * Ounce you are done push the branch.
 * Make a pull request to the master branch of the original repository.
 * Done: time for Code rewiew.
+
+## Building and testing instructions 
+* You must have android studio 2.0.0 or latest
+* clone or download this repo
+* Open it with android studio
+* Run it using emulator or generate apk for real device.
+* Test the app.
