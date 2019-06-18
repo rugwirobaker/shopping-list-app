@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Products</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in </string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="full_name">Full name</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="sign_in_instead">Sign in instead</string>
+    <string name="product_name">Product name</string>
+    <string name="product_description">Product description</string>
+    <string name="add_product">Add product</string>
+    <string name="registr_instead">Registr instead</string>
+    <string name="description">Description</string>
+    <string name="new_product">New product</string>
+    <string name="you_have_no_product">You have no product</string>
+    <string name="p_message">products in stock</string>
+    <string name="you_have">You have </string>
+</resources>
