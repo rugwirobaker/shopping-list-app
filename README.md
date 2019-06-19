@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/benshidanny11/shopping-list-app/tree/develop.svg?style=svg)](https://circleci.com/gh/benshidanny11/shopping-list-app/tree/develop)
 # shopping-list-app
 sample android application.
 
@@ -14,3 +15,4 @@ sample android application.
 * Open it with android studio.
 * Run it using emulator or generate apk for real device.
 * Test the app.
+
