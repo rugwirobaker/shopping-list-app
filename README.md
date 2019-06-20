@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/benshidanny11/shopping-list-app/tree/develop.svg?style=svg)](https://circleci.com/gh/benshidanny11/shopping-list-app/tree/develop)
+[![CircleCI](https://circleci.com/gh/benshidanny11/shopping-list-app/tree/develop.svg?style=shield)](https://circleci.com/gh/benshidanny11/shopping-list-app/tree/develop)
 # shopping-list-app
 sample android application.
 
